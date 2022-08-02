@@ -29,6 +29,8 @@
 		CBB223D828993030005D15B2 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223D628993030005D15B2 /* NetworkError.swift */; };
 		CBB223DB289938D7005D15B2 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223DA289938D7005D15B2 /* LaunchViewModel.swift */; };
 		CBB223DE28993A1B005D15B2 /* LaunchCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223DD28993A1B005D15B2 /* LaunchCollectionCell.swift */; };
+		CBB223E028993E08005D15B2 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223DF28993E08005D15B2 /* Filters.swift */; };
+		CBB223E228993E51005D15B2 /* SearchAndQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223E128993E51005D15B2 /* SearchAndQuery.swift */; };
 		CDDD7A404BEBD82143C1B3B4 /* Pods_Task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E756BDBF991BA33F53F620E /* Pods_Task.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,8 @@
 		CBB223D628993030005D15B2 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		CBB223DA289938D7005D15B2 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		CBB223DD28993A1B005D15B2 /* LaunchCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCollectionCell.swift; sourceTree = "<group>"; };
+		CBB223DF28993E08005D15B2 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
+		CBB223E128993E51005D15B2 /* SearchAndQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndQuery.swift; sourceTree = "<group>"; };
 		EC6037D1AC5F17B46F137C62 /* Pods-Task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task.debug.xcconfig"; path = "Target Support Files/Pods-Task/Pods-Task.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +154,8 @@
 				CBB223BB28992D31005D15B2 /* SecondStage.swift */,
 				CBB223BC28992D32005D15B2 /* Telemetry.swift */,
 				CBB223BA28992D31005D15B2 /* Timeline.swift */,
+				CBB223DF28993E08005D15B2 /* Filters.swift */,
+				CBB223E128993E51005D15B2 /* SearchAndQuery.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB223E028993E08005D15B2 /* Filters.swift in Sources */,
 				CBB223DE28993A1B005D15B2 /* LaunchCollectionCell.swift in Sources */,
 				CBB223D728993030005D15B2 /* Services.swift in Sources */,
 				CBB223CD28992D41005D15B2 /* OrbitParams.swift in Sources */,
@@ -310,6 +317,7 @@
 				CBB223A5289920BD005D15B2 /* AppDelegate.swift in Sources */,
 				CBB223D328992D48005D15B2 /* Fairings.swift in Sources */,
 				CBB223A7289920BD005D15B2 /* SceneDelegate.swift in Sources */,
+				CBB223E228993E51005D15B2 /* SearchAndQuery.swift in Sources */,
 				CBB223D828993030005D15B2 /* NetworkError.swift in Sources */,
 				CBB223C928992D41005D15B2 /* Rocket.swift in Sources */,
 				CBB223D228992D48005D15B2 /* Cores.swift in Sources */,
