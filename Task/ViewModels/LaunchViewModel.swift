@@ -20,12 +20,12 @@ class LaunchViewModel: ObservableObject {
     @Published  var listLoadingError: String = ""
     @Published  var showAlert: Bool = false
     @Published  var searchTextAndQuery = SearchAndQuery()
-    private var subscription: Set<AnyCancellable> = []
+    private var cancellables: Set<AnyCancellable> = []
     var dataManager: ServiceProtocol
     
     init( dataManager: ServiceProtocol = Services.shared) {
         self.dataManager = dataManager
-        getStarLinkList()
+        getLaunchesList()
         validate()
     }
     func validate(){
@@ -45,13 +45,13 @@ class LaunchViewModel: ObservableObject {
                 //
             } receiveValue: { [self] _ in
                 
-                searchStarLink(query: self.searchTextAndQuery.query ,searchText: self.searchTextAndQuery.searchText)
-            }.store(in: &subscription)
+                searchLaunches(query: self.searchTextAndQuery.query ,searchText: self.searchTextAndQuery.searchText)
+            }.store(in: &cancellables)
         
     }
     
-    func getStarLinkList() {
-        dataManager.fetchStarLinks()
+    func getLaunchesList() {
+        dataManager.fetchLaunches()
             .sink { (dataResponse) in
                 print(dataResponse)
                 if dataResponse.error != nil {
@@ -65,13 +65,13 @@ class LaunchViewModel: ObservableObject {
                     }
                     
                 }
-            }.store(in: &subscription)
+            }.store(in: &cancellables)
         
         
     }
-    func searchStarLink(query:String,searchText:String){
+    func searchLaunches(query:String,searchText:String){
         
-        dataManager.searchStarLinks(query: query,searchText: searchText)
+        dataManager.searchLaunches(query: query,searchText: searchText)
             .sink { (dataResponse) in
                 print(dataResponse)
                 if dataResponse.error != nil {
@@ -85,7 +85,7 @@ class LaunchViewModel: ObservableObject {
                     }
                     
                 }
-            }.store(in: &subscription)
+            }.store(in: &cancellables)
         
     }
     

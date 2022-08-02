@@ -10,8 +10,8 @@ import Combine
 import Alamofire
 
 protocol ServiceProtocol {
-    func fetchStarLinks() -> AnyPublisher<DataResponse<[Launch], NetworkError>, Never>
-    func searchStarLinks(query:String,searchText:String) -> AnyPublisher<DataResponse<[Launch], NetworkError>, Never>
+    func fetchLaunches() -> AnyPublisher<DataResponse<[Launch], NetworkError>, Never>
+    func searchLaunches(query:String,searchText:String) -> AnyPublisher<DataResponse<[Launch], NetworkError>, Never>
 }
 
 
@@ -22,7 +22,7 @@ class Services {
 
 extension Services: ServiceProtocol {
     
-    func searchStarLinks(query:String,searchText:String) -> AnyPublisher<DataResponse<[Launch], NetworkError>, Never> {
+    func searchLaunches(query:String,searchText:String) -> AnyPublisher<DataResponse<[Launch], NetworkError>, Never> {
         
             let url = URL(string: "https://api.spacexdata.com/v3/launches/past")!
             return AF.request(url,
@@ -45,7 +45,7 @@ extension Services: ServiceProtocol {
     }
     
     
-    func fetchStarLinks() -> AnyPublisher<DataResponse<[Launch], NetworkError>, Never> {
+    func fetchLaunches() -> AnyPublisher<DataResponse<[Launch], NetworkError>, Never> {
         let url = URL(string: "https://api.spacexdata.com/v3/launches/past")!
         return AF.request(url,
                           method: .get)

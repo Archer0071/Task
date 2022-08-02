@@ -11,7 +11,7 @@ import Combine
 
 class LaunchDetailController: UIViewController {
     var launches = Launch()
-    var subscription: Set<AnyCancellable> = []
+    var cancellables: Set<AnyCancellable> = []
     
     
     private let Name : UILabel = {

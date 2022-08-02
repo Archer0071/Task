@@ -10,7 +10,7 @@ import UIKit
 
 class LaunchCollectionCell: UICollectionViewCell {
     static let reuseIdentifier = "Cell"
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
@@ -19,29 +19,30 @@ class LaunchCollectionCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-   
-   private let Name : UILabel = {
-       let label = UILabel()
-       label.textColor = .white
-       label.translatesAutoresizingMaskIntoConstraints = false
+    
+    private let Name : UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.numberOfLines = 0
         
-       return label
-   }()
+        return label
+    }()
     
-   private let BackgroundImage : UIImageView = {
+    private let BackgroundImage : UIImageView = {
         let Image = UIImageView(frame: .zero)
         Image.contentMode  = .scaleAspectFill
         Image.translatesAutoresizingMaskIntoConstraints = false
         Image.clipsToBounds = true
         Image.layer.cornerRadius = 10
+        Image.applyBlurEffect()
         return Image
     }()
     
-   
+    
     func configureUI(){
-      
+        
         contentView.addSubview(BackgroundImage)
         contentView.addSubview(Name)
         
@@ -66,7 +67,7 @@ class LaunchCollectionCell: UICollectionViewCell {
         Name.text = launches.missionName
         BackgroundImage.image = UIImage(named: "Logo")
     }
-
-   
-
+    
+    
+    
 }
