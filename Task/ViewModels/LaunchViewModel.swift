@@ -15,8 +15,6 @@ class LaunchViewModel: ObservableObject {
     
     @Published  var launches =  [Launch]()
     var oldData = [Launch]()
-    
-    
     @Published  var listLoadingError: String = ""
     @Published  var showAlert: Bool = false
     private var subscription: Set<AnyCancellable> = []
