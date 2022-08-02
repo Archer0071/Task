@@ -41,8 +41,6 @@ class LaunchCollectionCell: UICollectionViewCell {
     
    
     func configureUI(){
-//        self.selectionStyle = .none
-        
       
         contentView.addSubview(BackgroundImage)
         contentView.addSubview(Name)
