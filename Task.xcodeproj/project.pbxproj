@@ -12,9 +12,27 @@
 		CBB223A9289920BD005D15B2 /* LaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223A8289920BD005D15B2 /* LaunchController.swift */; };
 		CBB223AE289920BF005D15B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBB223AD289920BF005D15B2 /* Assets.xcassets */; };
 		CBB223B1289920BF005D15B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB223AF289920BF005D15B2 /* LaunchScreen.storyboard */; };
+		CBB223BE28992D32005D15B2 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223BA28992D31005D15B2 /* Timeline.swift */; };
+		CBB223BF28992D32005D15B2 /* SecondStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223BB28992D31005D15B2 /* SecondStage.swift */; };
+		CBB223C028992D32005D15B2 /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223BC28992D32005D15B2 /* Telemetry.swift */; };
+		CBB223C128992D32005D15B2 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223BD28992D32005D15B2 /* Launch.swift */; };
+		CBB223C928992D41005D15B2 /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223C228992D40005D15B2 /* Rocket.swift */; };
+		CBB223CA28992D41005D15B2 /* Payloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223C328992D40005D15B2 /* Payloads.swift */; };
+		CBB223CB28992D41005D15B2 /* FirstStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223C428992D41005D15B2 /* FirstStage.swift */; };
+		CBB223CC28992D41005D15B2 /* LaunchSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223C528992D41005D15B2 /* LaunchSite.swift */; };
+		CBB223CD28992D41005D15B2 /* OrbitParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223C628992D41005D15B2 /* OrbitParams.swift */; };
+		CBB223CE28992D41005D15B2 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223C728992D41005D15B2 /* Links.swift */; };
+		CBB223CF28992D41005D15B2 /* LaunchFailureDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223C828992D41005D15B2 /* LaunchFailureDetails.swift */; };
+		CBB223D228992D48005D15B2 /* Cores.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223D028992D48005D15B2 /* Cores.swift */; };
+		CBB223D328992D48005D15B2 /* Fairings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223D128992D48005D15B2 /* Fairings.swift */; };
+		CBB223D728993030005D15B2 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223D528993030005D15B2 /* Services.swift */; };
+		CBB223D828993030005D15B2 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223D628993030005D15B2 /* NetworkError.swift */; };
+		CDDD7A404BEBD82143C1B3B4 /* Pods_Task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E756BDBF991BA33F53F620E /* Pods_Task.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		426D679BEABC3807728B2734 /* Pods-Task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task.release.xcconfig"; path = "Target Support Files/Pods-Task/Pods-Task.release.xcconfig"; sourceTree = "<group>"; };
+		9E756BDBF991BA33F53F620E /* Pods_Task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB223A1289920BD005D15B2 /* Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB223A4289920BD005D15B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBB223A6289920BD005D15B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -22,6 +40,22 @@
 		CBB223AD289920BF005D15B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBB223B0289920BF005D15B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBB223B2289920BF005D15B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBB223BA28992D31005D15B2 /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
+		CBB223BB28992D31005D15B2 /* SecondStage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondStage.swift; sourceTree = "<group>"; };
+		CBB223BC28992D32005D15B2 /* Telemetry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
+		CBB223BD28992D32005D15B2 /* Launch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
+		CBB223C228992D40005D15B2 /* Rocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
+		CBB223C328992D40005D15B2 /* Payloads.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payloads.swift; sourceTree = "<group>"; };
+		CBB223C428992D41005D15B2 /* FirstStage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstStage.swift; sourceTree = "<group>"; };
+		CBB223C528992D41005D15B2 /* LaunchSite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchSite.swift; sourceTree = "<group>"; };
+		CBB223C628992D41005D15B2 /* OrbitParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrbitParams.swift; sourceTree = "<group>"; };
+		CBB223C728992D41005D15B2 /* Links.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
+		CBB223C828992D41005D15B2 /* LaunchFailureDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchFailureDetails.swift; sourceTree = "<group>"; };
+		CBB223D028992D48005D15B2 /* Cores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cores.swift; sourceTree = "<group>"; };
+		CBB223D128992D48005D15B2 /* Fairings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fairings.swift; sourceTree = "<group>"; };
+		CBB223D528993030005D15B2 /* Services.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		CBB223D628993030005D15B2 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		EC6037D1AC5F17B46F137C62 /* Pods-Task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task.debug.xcconfig"; path = "Target Support Files/Pods-Task/Pods-Task.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +63,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDDD7A404BEBD82143C1B3B4 /* Pods_Task.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		334E7F99DD05FC8E370C268D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EC6037D1AC5F17B46F137C62 /* Pods-Task.debug.xcconfig */,
+				426D679BEABC3807728B2734 /* Pods-Task.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		44A92EBB2E23CDFC920C3D5C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E756BDBF991BA33F53F620E /* Pods_Task.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CBB22398289920BD005D15B2 = {
 			isa = PBXGroup;
 			children = (
 				CBB223A3289920BD005D15B2 /* Task */,
 				CBB223A2289920BD005D15B2 /* Products */,
+				334E7F99DD05FC8E370C268D /* Pods */,
+				44A92EBB2E23CDFC920C3D5C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +109,8 @@
 		CBB223A3289920BD005D15B2 /* Task */ = {
 			isa = PBXGroup;
 			children = (
+				CBB223D428993010005D15B2 /* Networks */,
+				CBB223B928992CFF005D15B2 /* Models */,
 				CBB223B828992BA9005D15B2 /* Controllers */,
 				CBB223A4289920BD005D15B2 /* AppDelegate.swift */,
 				CBB223A6289920BD005D15B2 /* SceneDelegate.swift */,
@@ -72,6 +129,35 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		CBB223B928992CFF005D15B2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CBB223BD28992D32005D15B2 /* Launch.swift */,
+				CBB223C428992D41005D15B2 /* FirstStage.swift */,
+				CBB223C828992D41005D15B2 /* LaunchFailureDetails.swift */,
+				CBB223D028992D48005D15B2 /* Cores.swift */,
+				CBB223D128992D48005D15B2 /* Fairings.swift */,
+				CBB223C528992D41005D15B2 /* LaunchSite.swift */,
+				CBB223C728992D41005D15B2 /* Links.swift */,
+				CBB223C628992D41005D15B2 /* OrbitParams.swift */,
+				CBB223C328992D40005D15B2 /* Payloads.swift */,
+				CBB223C228992D40005D15B2 /* Rocket.swift */,
+				CBB223BB28992D31005D15B2 /* SecondStage.swift */,
+				CBB223BC28992D32005D15B2 /* Telemetry.swift */,
+				CBB223BA28992D31005D15B2 /* Timeline.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CBB223D428993010005D15B2 /* Networks */ = {
+			isa = PBXGroup;
+			children = (
+				CBB223D628993030005D15B2 /* NetworkError.swift */,
+				CBB223D528993030005D15B2 /* Services.swift */,
+			);
+			path = Networks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,9 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBB223B5289920BF005D15B2 /* Build configuration list for PBXNativeTarget "Task" */;
 			buildPhases = (
+				AE2E9CD5A4D582D0FA8070D9 /* [CP] Check Pods Manifest.lock */,
 				CBB2239D289920BD005D15B2 /* Sources */,
 				CBB2239E289920BD005D15B2 /* Frameworks */,
 				CBB2239F289920BD005D15B2 /* Resources */,
+				36E1AE570F97041BA115A5B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,14 +225,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		36E1AE570F97041BA115A5B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Task/Pods-Task-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Task/Pods-Task-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Task/Pods-Task-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE2E9CD5A4D582D0FA8070D9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Task-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CBB2239D289920BD005D15B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB223D728993030005D15B2 /* Services.swift in Sources */,
+				CBB223CD28992D41005D15B2 /* OrbitParams.swift in Sources */,
+				CBB223BE28992D32005D15B2 /* Timeline.swift in Sources */,
+				CBB223C028992D32005D15B2 /* Telemetry.swift in Sources */,
+				CBB223CC28992D41005D15B2 /* LaunchSite.swift in Sources */,
+				CBB223C128992D32005D15B2 /* Launch.swift in Sources */,
+				CBB223CE28992D41005D15B2 /* Links.swift in Sources */,
 				CBB223A9289920BD005D15B2 /* LaunchController.swift in Sources */,
+				CBB223BF28992D32005D15B2 /* SecondStage.swift in Sources */,
+				CBB223CB28992D41005D15B2 /* FirstStage.swift in Sources */,
+				CBB223CA28992D41005D15B2 /* Payloads.swift in Sources */,
+				CBB223CF28992D41005D15B2 /* LaunchFailureDetails.swift in Sources */,
 				CBB223A5289920BD005D15B2 /* AppDelegate.swift in Sources */,
+				CBB223D328992D48005D15B2 /* Fairings.swift in Sources */,
 				CBB223A7289920BD005D15B2 /* SceneDelegate.swift in Sources */,
+				CBB223D828993030005D15B2 /* NetworkError.swift in Sources */,
+				CBB223C928992D41005D15B2 /* Rocket.swift in Sources */,
+				CBB223D228992D48005D15B2 /* Cores.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +423,7 @@
 		};
 		CBB223B6289920BF005D15B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC6037D1AC5F17B46F137C62 /* Pods-Task.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -305,6 +451,7 @@
 		};
 		CBB223B7289920BF005D15B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 426D679BEABC3807728B2734 /* Pods-Task.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
