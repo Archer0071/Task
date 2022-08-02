@@ -27,6 +27,8 @@
 		CBB223D328992D48005D15B2 /* Fairings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223D128992D48005D15B2 /* Fairings.swift */; };
 		CBB223D728993030005D15B2 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223D528993030005D15B2 /* Services.swift */; };
 		CBB223D828993030005D15B2 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223D628993030005D15B2 /* NetworkError.swift */; };
+		CBB223DB289938D7005D15B2 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223DA289938D7005D15B2 /* LaunchViewModel.swift */; };
+		CBB223DE28993A1B005D15B2 /* LaunchCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223DD28993A1B005D15B2 /* LaunchCollectionCell.swift */; };
 		CDDD7A404BEBD82143C1B3B4 /* Pods_Task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E756BDBF991BA33F53F620E /* Pods_Task.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		CBB223D128992D48005D15B2 /* Fairings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fairings.swift; sourceTree = "<group>"; };
 		CBB223D528993030005D15B2 /* Services.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		CBB223D628993030005D15B2 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		CBB223DA289938D7005D15B2 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		CBB223DD28993A1B005D15B2 /* LaunchCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCollectionCell.swift; sourceTree = "<group>"; };
 		EC6037D1AC5F17B46F137C62 /* Pods-Task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task.debug.xcconfig"; path = "Target Support Files/Pods-Task/Pods-Task.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +80,6 @@
 				EC6037D1AC5F17B46F137C62 /* Pods-Task.debug.xcconfig */,
 				426D679BEABC3807728B2734 /* Pods-Task.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -109,6 +112,8 @@
 		CBB223A3289920BD005D15B2 /* Task */ = {
 			isa = PBXGroup;
 			children = (
+				CBB223DC289939F4005D15B2 /* Views */,
+				CBB223D9289938B9005D15B2 /* ViewModels */,
 				CBB223D428993010005D15B2 /* Networks */,
 				CBB223B928992CFF005D15B2 /* Models */,
 				CBB223B828992BA9005D15B2 /* Controllers */,
@@ -156,6 +161,22 @@
 				CBB223D528993030005D15B2 /* Services.swift */,
 			);
 			path = Networks;
+			sourceTree = "<group>";
+		};
+		CBB223D9289938B9005D15B2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CBB223DA289938D7005D15B2 /* LaunchViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CBB223DC289939F4005D15B2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CBB223DD28993A1B005D15B2 /* LaunchCollectionCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,12 +293,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB223DE28993A1B005D15B2 /* LaunchCollectionCell.swift in Sources */,
 				CBB223D728993030005D15B2 /* Services.swift in Sources */,
 				CBB223CD28992D41005D15B2 /* OrbitParams.swift in Sources */,
 				CBB223BE28992D32005D15B2 /* Timeline.swift in Sources */,
 				CBB223C028992D32005D15B2 /* Telemetry.swift in Sources */,
 				CBB223CC28992D41005D15B2 /* LaunchSite.swift in Sources */,
 				CBB223C128992D32005D15B2 /* Launch.swift in Sources */,
+				CBB223DB289938D7005D15B2 /* LaunchViewModel.swift in Sources */,
 				CBB223CE28992D41005D15B2 /* Links.swift in Sources */,
 				CBB223A9289920BD005D15B2 /* LaunchController.swift in Sources */,
 				CBB223BF28992D32005D15B2 /* SecondStage.swift in Sources */,
@@ -434,6 +457,7 @@
 				INFOPLIST_FILE = Task/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -445,7 +469,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -462,6 +486,7 @@
 				INFOPLIST_FILE = Task/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -473,7 +498,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
