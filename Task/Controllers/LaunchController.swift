@@ -12,10 +12,18 @@ import Combine
 
 
 class LaunchController: UIViewController {
-    let viewModel = LaunchViewModel()
-    private var subscription: Set<AnyCancellable> = []
-    var query: String = Filters.rocket_name.rawValue
+    let viewModel = LaunchViewModel()                            ///ViewModel
+    private var cancellables: Set<AnyCancellable> = []
+    var query: String = Filters.rocket_name.rawValue            ///Setting Query Type to Default Filters.rocker_name
     
+    
+    
+    private let indicator : UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(frame: .zero)
+        activityIndicator.style = UIActivityIndicatorView.Style.medium
+        activityIndicator.backgroundColor = .clear
+        return activityIndicator
+    }()
     
     private let searchController : UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -25,63 +33,129 @@ class LaunchController: UIViewController {
     }()
     
     private let collectionView: UICollectionView = {
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.height/3)
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout:layout)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout:LaunchCollectionLayout())
         collectionView.register(LaunchCollectionCell.self, forCellWithReuseIdentifier: LaunchCollectionCell.reuseIdentifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .black
         return collectionView
         
     }()
-
+    private let refreshControl: UIRefreshControl = {
+        let refresh = UIRefreshControl(frame: .zero)
+        refresh.attributedTitle = NSAttributedString(string: "Refreshing", attributes: nil)
+        return refresh
+    }()
+    
     
     
     override func viewDidLayoutSubviews() {
+        configureUI()
+    }
+    
+    private func configureUI(){
+        self.title = "STARLINKS"
+        
         collectionView.frame = view.bounds
-       
+        view.addSubview(collectionView)                /// Adding CollectionVIew to ViewController View
+        
+        indicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        indicator.center = CGPoint(x: UIScreen.main.bounds.size.width/2, y: 20)
+        collectionView.addSubview(indicator)         /// Adding ActivityIndicatior Loading  to CollectionView
+        
+        
+        
+        if #available(iOS 10.0, *) {                         /// Checking IOS Version is Greater than 10
+            collectionView.refreshControl = refreshControl   /// Adding Pull Down Refresh  to CollectionView
+        } else {
+            collectionView.addSubview(refreshControl)
+        }
+        
+        extendedLayoutIncludesOpaqueBars = true             /// RefreshController  for  Opaque Navigation Bar
         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "STARLINKS"
-        view.addSubview(collectionView)
         
+        setupCollectionView()
+        setupActivityIndicator()
+        setupSearchController()
+        setupRefreshController()
+        setupBindings()
+    }
+    
+    
+    private func setupCollectionView(){     /// Setting CollectionVIew Delegates/DataSource
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+    }
+    private func setupActivityIndicator() { /// Animating ActivityIndication at creation
+        indicator.startAnimating()
+    }
+    
+    private func setupSearchController(){   /// Adding SearchController to Navigation Bar and setting delegate
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
-        observeViewModel()
-        
+    }
+    private func setupRefreshController(){ /// Adding  Listener  For  RefreshController on pulling CollectionvIew
+        refreshControl.addTarget(self, action: #selector(LaunchController.refreshData), for: UIControl.Event.valueChanged)
         
     }
-
+    @objc private func refreshData(){     /// Refreshing CollectionVIew Datasource with delay and making sure searchbar becomes empty
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
+            self.viewModel.getLaunchesList()
+            self.searchController.searchBar.text = ""
+            self.searchController.dismiss(animated: true)
+            self.refreshControl.endRefreshing()
+        }
+        
+    }
     
-
-    private func observeViewModel() {
+    
+    private func setupBindings() {      /// ViewBindings Reactive
         viewModel.$launches
             .receive(on:DispatchQueue.main)
-            .sink {[weak self] _ in
-                self?.collectionView.reloadData()
+            .sink {[weak self] launches in
+                if  self?.viewModel.launches.count ?? 0 > 0 {
+                    self?.navigationItem.rightBarButtonItem?.isEnabled = true
+                    self?.indicator.stopAnimating()
+                    self?.indicator.hidesWhenStopped = true
+                    
+                }
+                
+                UIView.transition(
+                    with: (self?.collectionView)!,
+                    duration: 0.2,
+                    options: .transitionCrossDissolve,
+                    animations: { self?.collectionView.reloadData() },
+                    completion: nil
+                )
+                
             }
-            .store(in: &subscription)
+            .store(in: &cancellables)
+        
+        viewModel.$showAlert        /// Showing Alert  on Error Fetching Networks
+            .receive(on: DispatchQueue.main)
+            .sink{[weak self] showAlert in
+                if showAlert {
+                    let alert = UIAlertController(title: "Error", message: self?.viewModel.listLoadingError, preferredStyle:.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self?.present(alert, animated: true, completion: nil)
+                    self?.indicator.stopAnimating()
+                }
+                
+            }.store(in: &cancellables)
     }
     
     
-     func showFilters() {
-         let alert = UIAlertController(title: "Select a Filter", message: "Please Select an Option", preferredStyle: .actionSheet)
-         for i in Filters.allCases {
-             alert.addAction(UIAlertAction(title: i.rawValue, style: .default , handler:{ (UIAlertAction)in
-                 self.query = i.rawValue
-        }))
-         }
-
+    func showFilters() {         /// Showing Filters from  enums Filters in Model
+        let alert = UIAlertController(title: "Select a Filter", message: "Please Select an Option", preferredStyle: .actionSheet)
+        for i in Filters.allCases {
+            alert.addAction(UIAlertAction(title: i.rawValue, style: .default , handler:{ (UIAlertAction)in
+                self.query = i.rawValue
+            }))
+        }
+        
         self.present(alert, animated: true, completion: {
             
         })
@@ -91,47 +165,3 @@ class LaunchController: UIViewController {
     
 }
 
-
-
-extension LaunchController:UICollectionViewDelegate,UICollectionViewDataSource{
-
-    
-    
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return viewModel.launches.count
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LaunchCollectionCell.reuseIdentifier, for: indexPath) as! LaunchCollectionCell
-
-        cell.configureCell(launches: viewModel.launches[indexPath.row])
-
-        
-        return cell
-        
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let DetailViewController = LaunchDetailController()
-        DetailViewController.launches = viewModel.launches[indexPath.row]
-      navigationController?.pushViewController(DetailViewController, animated: true)
-       
-    }
-    
-}
-extension LaunchController : UISearchBarDelegate {
-    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
-        showFilters()
-    }
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.viewModel.searchTextAndQuery = SearchAndQuery(query: self.query, searchText: "")
-    }
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.viewModel.searchTextAndQuery = SearchAndQuery(query: self.query, searchText: searchText)
-       
-    }
-    
-}
