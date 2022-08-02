@@ -115,9 +115,9 @@ extension LaunchController:UICollectionViewDelegate,UICollectionViewDataSource{
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let DetailViewController = LaunchDetailController()
-//        DetailViewController.starLinks = viewModel.launches[indexPath.row]
-//      navigationController?.pushViewController(DetailViewController, animated: true)
+        let DetailViewController = LaunchDetailController()
+//        DetailViewController.launches = viewModel.launches[indexPath.row]
+      navigationController?.pushViewController(DetailViewController, animated: true)
        
     }
     

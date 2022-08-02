@@ -31,6 +31,7 @@
 		CBB223DE28993A1B005D15B2 /* LaunchCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223DD28993A1B005D15B2 /* LaunchCollectionCell.swift */; };
 		CBB223E028993E08005D15B2 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223DF28993E08005D15B2 /* Filters.swift */; };
 		CBB223E228993E51005D15B2 /* SearchAndQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223E128993E51005D15B2 /* SearchAndQuery.swift */; };
+		CBB223E428994221005D15B2 /* LaunchDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB223E328994221005D15B2 /* LaunchDetailController.swift */; };
 		CDDD7A404BEBD82143C1B3B4 /* Pods_Task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E756BDBF991BA33F53F620E /* Pods_Task.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		CBB223DD28993A1B005D15B2 /* LaunchCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCollectionCell.swift; sourceTree = "<group>"; };
 		CBB223DF28993E08005D15B2 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		CBB223E128993E51005D15B2 /* SearchAndQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndQuery.swift; sourceTree = "<group>"; };
+		CBB223E328994221005D15B2 /* LaunchDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailController.swift; sourceTree = "<group>"; };
 		EC6037D1AC5F17B46F137C62 /* Pods-Task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task.debug.xcconfig"; path = "Target Support Files/Pods-Task/Pods-Task.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				CBB223A8289920BD005D15B2 /* LaunchController.swift */,
+				CBB223E328994221005D15B2 /* LaunchDetailController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				CBB223CE28992D41005D15B2 /* Links.swift in Sources */,
 				CBB223A9289920BD005D15B2 /* LaunchController.swift in Sources */,
 				CBB223BF28992D32005D15B2 /* SecondStage.swift in Sources */,
+				CBB223E428994221005D15B2 /* LaunchDetailController.swift in Sources */,
 				CBB223CB28992D41005D15B2 /* FirstStage.swift in Sources */,
 				CBB223CA28992D41005D15B2 /* Payloads.swift in Sources */,
 				CBB223CF28992D41005D15B2 /* LaunchFailureDetails.swift in Sources */,

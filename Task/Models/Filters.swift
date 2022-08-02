@@ -9,8 +9,6 @@ import Foundation
 enum Filters: String,CaseIterable {
     
     case flight_id                  = "flight_id"
-    case start                      = "start"
-    case end                        = "end"
     case flight_number              = "flight_number"
     case launch_year                = "launch_year"
     case tbd                        = "tbd"
