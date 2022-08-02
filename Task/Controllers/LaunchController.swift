@@ -14,6 +14,7 @@ import Combine
 class LaunchController: UIViewController {
     let viewModel = LaunchViewModel()
     private var subscription: Set<AnyCancellable> = []
+    var query: String = Filters.rocket_name.rawValue
     
     
     private let searchController : UISearchController = {
@@ -38,17 +39,17 @@ class LaunchController: UIViewController {
         return collectionView
         
     }()
-    
+
     
     
     override func viewDidLayoutSubviews() {
         collectionView.frame = view.bounds
-        
+       
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "LAUCNHES"
+        self.title = "STARLINKS"
         view.addSubview(collectionView)
         
         collectionView.dataSource = self
@@ -60,19 +61,31 @@ class LaunchController: UIViewController {
         
         
     }
+
     
-    
-    
+
     private func observeViewModel() {
         viewModel.$launches
             .receive(on:DispatchQueue.main)
-            .sink {[weak self] launch in
+            .sink {[weak self] _ in
                 self?.collectionView.reloadData()
             }
             .store(in: &subscription)
     }
     
     
+     func showFilters() {
+         let alert = UIAlertController(title: "Select a Filter", message: "Please Select an Option", preferredStyle: .actionSheet)
+         for i in Filters.allCases {
+             alert.addAction(UIAlertAction(title: i.rawValue, style: .default , handler:{ (UIAlertAction)in
+                 self.query = i.rawValue
+        }))
+         }
+
+        self.present(alert, animated: true, completion: {
+            
+        })
+    }
     
     
     
@@ -81,12 +94,12 @@ class LaunchController: UIViewController {
 
 
 extension LaunchController:UICollectionViewDelegate,UICollectionViewDataSource{
-    
+
     
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+
         return viewModel.launches.count
         
     }
@@ -94,30 +107,31 @@ extension LaunchController:UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LaunchCollectionCell.reuseIdentifier, for: indexPath) as! LaunchCollectionCell
-        
+
         cell.configureCell(launches: viewModel.launches[indexPath.row])
-        
+
         
         return cell
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("CELL Selected")
-        
+//        let DetailViewController = LaunchDetailController()
+//        DetailViewController.starLinks = viewModel.launches[indexPath.row]
+//      navigationController?.pushViewController(DetailViewController, animated: true)
+       
     }
     
 }
 extension LaunchController : UISearchBarDelegate {
     func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
-        
+        showFilters()
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("Search Canceled")
+        self.viewModel.searchTextAndQuery = SearchAndQuery(query: self.query, searchText: "")
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
-        
+        self.viewModel.searchTextAndQuery = SearchAndQuery(query: self.query, searchText: searchText)
+       
     }
     
 }
-
