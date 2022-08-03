@@ -1,4 +1,4 @@
-name: iOS starter workflow
+name: iOS workflow
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: workspace Build for default scheme using iPhone simulator
+    name: Workspace Build for default scheme using iPhone simulator
     runs-on: macos-latest
 
     steps:
