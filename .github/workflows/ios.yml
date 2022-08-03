@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Workspace Build for default scheme using iPhone simulator
+    name: Workspace Build for default scheme and generic/platform=iOS with No code signing
     runs-on: macos-latest
 
     steps:
