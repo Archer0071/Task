@@ -7,11 +7,9 @@
 
 import Foundation
 import Alamofire
-import Combine
 
 class LaunchDetailController: UIViewController {
     var launches = Launch()
-    var cancellables: Set<AnyCancellable> = []
     
     
     private let Name : UILabel = {
