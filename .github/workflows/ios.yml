@@ -23,9 +23,7 @@ jobs:
       - name: Install Dependences
         run: |
             cd  Task
-            pod repo update
             pod install
-      
       - name: Build
         env:
           scheme: ${{ 'default' }}
