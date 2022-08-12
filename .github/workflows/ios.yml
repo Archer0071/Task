@@ -20,10 +20,12 @@ jobs:
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
           echo $default | cat >default
           echo Using default scheme: $default
-      - name: install-cocoapods-action
-          # You may pin to the exact commit or the version.
-          # uses: NiftyStack/install-cocoapods-action@aa5cb6a8e0bdcbcbf4f8705331af26b602af91b2
-        uses: NiftyStack/install-cocoapods-action@1.0.0
+      - name: Install Dependences
+        run: |
+            cd  Task
+            pod repo update
+            pod install
+      
       - name: Build
         env:
           scheme: ${{ 'default' }}
