@@ -117,7 +117,6 @@ class LaunchController: UIViewController {
             .receive(on:DispatchQueue.main)
             .sink {[weak self] launches in
                 if  self?.viewModel.launches.count ?? 0 > 0 {
-                    self?.navigationItem.rightBarButtonItem?.isEnabled = true
                     self?.indicator.stopAnimating()
                     self?.indicator.hidesWhenStopped = true
                     
