@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Run unit tests
-      run: xcodebuild -workspace "Task.xcworkspace" -scheme "Task" -destination 'platform:iOS Simulator, id:13CF1FD5-D798-4695-AC92-9E6DEAA6989B, OS:15.2, name:iPhone 12 Pro' | xcpretty && exit ${PIPESTATUS[0]}
+      run: xcodebuild -workspace "Task.xcworkspace" -scheme "Task" -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.3' | xcpretty && exit ${PIPESTATUS[0]}
   
   build:
     name: Build with No code signing
