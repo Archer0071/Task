@@ -12,8 +12,17 @@ jobs:
     name: test iOS
     steps:
     - uses: actions/checkout@v3
+    - name: Install Dependences
+      run: |
+            cd  Task
+            pod install
     - name: Run unit tests
-      run: xcodebuild -workspace "Task.xcworkspace" -scheme "Task" -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.3' | xcpretty && exit ${PIPESTATUS[0]}
+      env:
+          scheme: ${{ 'default' }}
+          platform: ${{ 'iOS Simulator' }}
+      run: |
+         xcodebuild -workspace Task.xcworkspace -scheme Task -configuration Debug -showdestinations
+         xcodebuild -workspace "Task.xcworkspace" -scheme "Task" -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.3' | xcpretty && exit ${PIPESTATUS[0]}
   
   build:
     name: Build with No code signing
