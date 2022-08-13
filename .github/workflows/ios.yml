@@ -21,7 +21,7 @@ jobs:
           scheme: ${{ 'default' }}
           platform: ${{ 'iOS Simulator' }}
       run: |
-         xcodebuild -workspace "Task.xcworkspace" -scheme "Task" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12,OS=15.2' test-without-building
+         xcodebuild -workspace "Task.xcworkspace" -scheme "Task" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12,OS=13.0' test-without-building
   
   build:
     name: Build with No code signing
