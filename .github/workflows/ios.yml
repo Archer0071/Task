@@ -22,7 +22,7 @@ jobs:
           platform: ${{ 'iOS Simulator' }}
       run: |
          xcodebuild -workspace Task.xcworkspace -scheme Task -configuration Debug -showdestinations
-         xcodebuild -workspace "Task.xcworkspace" -scheme "Task" -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.3' | xcpretty && exit ${PIPESTATUS[0]}
+         xcodebuild -workspace "Task.xcworkspace" -scheme "Task" -destination 'platform=iOS Simulator,name=iPhone 12,OS=15.2' | xcpretty && exit ${PIPESTATUS[0]}
   
   build:
     name: Build with No code signing
