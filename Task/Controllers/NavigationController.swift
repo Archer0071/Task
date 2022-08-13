@@ -13,6 +13,7 @@ class NavigationController: UINavigationController {
     
     // The root view controller for our app
     init() {
+        
         super.init(rootViewController: LaunchController())
     }
     

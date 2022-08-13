@@ -21,10 +21,10 @@ class LaunchViewModel: ObservableObject {
     @Published  var showAlert: Bool = false
     @Published  var searchTextAndQuery = SearchAndQuery()
     private var cancellables: Set<AnyCancellable> = []
-    var dataManager: ServiceProtocol
+    let dataService : ServicesProtocol
     
-    init( dataManager: ServiceProtocol = Services.shared) {
-        self.dataManager = dataManager
+    init(dataService:ServicesProtocol) {
+        self.dataService = dataService
         getLaunchesList()
         validate()
     }
@@ -51,7 +51,7 @@ class LaunchViewModel: ObservableObject {
     }
     
     func getLaunchesList() {
-        dataManager.fetchLaunches()
+        dataService.fetchLaunches()
             .sink { (dataResponse) in
                 print(dataResponse)
                 if dataResponse.error != nil {
@@ -71,7 +71,7 @@ class LaunchViewModel: ObservableObject {
     }
     func searchLaunches(query:String,searchText:String){
         
-        dataManager.searchLaunches(query: query,searchText: searchText)
+        dataService.searchLaunches(query: query,searchText: searchText)
             .sink { (dataResponse) in
                 print(dataResponse)
                 if dataResponse.error != nil {

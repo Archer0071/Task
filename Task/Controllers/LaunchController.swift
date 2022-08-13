@@ -12,7 +12,10 @@ import Combine
 
 
 class LaunchController: UIViewController {
-    let viewModel = LaunchViewModel()                            ///ViewModel
+   
+    let viewModel =  LaunchViewModel(dataService: ProductionServices())
+    
+   
     private var cancellables: Set<AnyCancellable> = []
     var query: String = Filters.rocket_name.rawValue            ///Setting Query Type to Default Filters.rocker_name
     

@@ -9,18 +9,9 @@ import Foundation
 import Combine
 import Alamofire
 
-protocol ServiceProtocol {
-    func fetchLaunches() -> AnyPublisher<DataResponse<[Launch], NetworkError>, Never>
-    func searchLaunches(query:String,searchText:String) -> AnyPublisher<DataResponse<[Launch], NetworkError>, Never>
-}
 
 
-class Services {
-    static let shared: ServiceProtocol = Services()
-    private init() { }
-}
-
-extension Services: ServiceProtocol {
+class ProductionServices:ServicesProtocol {
     
     func searchLaunches(query:String,searchText:String) -> AnyPublisher<DataResponse<[Launch], NetworkError>, Never> {
         
@@ -63,7 +54,7 @@ extension Services: ServiceProtocol {
             .eraseToAnyPublisher()
         
     }
-    
-      
-    }
+}
+
+
 
