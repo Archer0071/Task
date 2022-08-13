@@ -7,30 +7,22 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test:
-    name: Test
-    runs-on: macos-latest
+  run_tests:
+    runs-on: macos-11
+    strategy:
+      matrix:
+        include:
+          - xcode: "13.2"
+            ios: "15.2"
+          - xcode: "13.1"
+            ios: "15.0"
+    name: test iOS (${{ matrix.ios }})
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Set Default Scheme
-        run: |
-          scheme_list=$(xcodebuild -list -json | tr -d "\n")
-          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
-          echo $default | cat >default
-          echo Using default scheme: $default
-      - name: Install Dependences
-        run: |
-            cd  Task
-            pod install
-      - name: Test
-        env:
-          scheme: ${{ 'default' }}
-          platform: ${{ 'iOS Simulator' }}
-        run: |
-          xcodebuild -workspace Task.xcworkspace -scheme Task -configuration Debug -showdestinations
-          xcodebuild -workspace "Task.xcworkspace" -scheme "Task" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
-
+    - uses: actions/checkout@v1
+    - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode_$.app && /usr/bin/xcodebuild -version
+    - name: Run unit tests
+      run: xcodebuild test -scheme Task -project Task.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12,OS=$' | xcpretty && exit ${PIPESTATUS[0]}
   
   build:
     name: Build with No code signing
