@@ -1,6 +1,6 @@
 # Task
 
-Using MVVM + Combine + Alamofire
+Using MVVM + Combine + DI + Alamofire
 
 API Source
 (Past Launches + FilterParameters)
