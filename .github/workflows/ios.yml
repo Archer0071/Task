@@ -8,7 +8,7 @@ on:
 
 jobs:
   run_tests:
-    runs-on: macos-11
+    runs-on: macos-latest
     strategy:
       matrix:
         include:
@@ -18,9 +18,7 @@ jobs:
             ios: "15.0"
     name: test iOS (${{ matrix.ios }})
     steps:
-    - uses: actions/checkout@v1
-    - name: Select Xcode
-      run: sudo xcode-select -switch /Applications/Xcode_13.app && /usr/bin/xcodebuild -version
+    - uses: actions/checkout@v3
     - name: Run unit tests
       run: xcodebuild test -scheme Task -project Task.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12,OS=$' | xcpretty && exit ${PIPESTATUS[0]}
   
