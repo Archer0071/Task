@@ -9,18 +9,11 @@ on:
 jobs:
   run_tests:
     runs-on: macos-latest
-    strategy:
-      matrix:
-        include:
-          - xcode: "13.2"
-            ios: "15.2"
-          - xcode: "13.1"
-            ios: "15.0"
-    name: test iOS (${{ matrix.ios }})
+    name: test iOS
     steps:
     - uses: actions/checkout@v3
     - name: Run unit tests
-      run: xcodebuild test -scheme Task -project Task.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12,OS=$' | xcpretty && exit ${PIPESTATUS[0]}
+      run: xcodebuild test -scheme Task -project Task.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 13,OS=13' | xcpretty && exit ${PIPESTATUS[0]}
   
   build:
     name: Build with No code signing
