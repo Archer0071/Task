@@ -17,7 +17,7 @@ class LaunchController: UIViewController {
     
    
     private var cancellables: Set<AnyCancellable> = []
-    var query: String = Filters.rocket_name.rawValue            ///Setting Query Type to Default Filters.rocker_name
+   
     
     
     
@@ -154,7 +154,7 @@ class LaunchController: UIViewController {
         let alert = UIAlertController(title: "Select a Filter", message: "Please Select an Option", preferredStyle: .actionSheet)
         for i in Filters.allCases {
             alert.addAction(UIAlertAction(title: i.rawValue, style: .default , handler:{ (UIAlertAction)in
-                self.query = i.rawValue
+                self.viewModel.query = i.rawValue
             }))
         }
         

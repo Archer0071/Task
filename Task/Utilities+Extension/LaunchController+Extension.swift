@@ -40,10 +40,10 @@ extension LaunchController : UISearchBarDelegate {
         showFilters()
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.viewModel.searchTextAndQuery = SearchAndQuery(query: self.query, searchText: "")
+        self.viewModel.searchTextAndQuery = SearchAndQuery(query: viewModel.query, searchText: "")
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.viewModel.searchTextAndQuery = SearchAndQuery(query: self.query, searchText: searchText)
+        self.viewModel.searchTextAndQuery = SearchAndQuery(query: viewModel.query, searchText: searchText)
         
     }
     

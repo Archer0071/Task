@@ -15,7 +15,7 @@ class LaunchViewModel: ObservableObject {
     
     @Published  var launches =  [Launch]()
     var oldData = [Launch]()
-    
+    var query: String = Filters.rocket_name.rawValue            ///Setting Query Type to Default Filters.rocker_name
     
     @Published  var listLoadingError: String = ""
     @Published  var showAlert: Bool = false
