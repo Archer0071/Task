@@ -13,7 +13,18 @@ import Combine
 
 class LaunchController: UIViewController {
    
-    let viewModel =  LaunchViewModel(dataService: ProductionServices())
+    var viewModel : LaunchViewModel
+    init(viewModel:LaunchViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+   
     
    
     private var cancellables: Set<AnyCancellable> = []

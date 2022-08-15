@@ -14,7 +14,7 @@ class NavigationController: UINavigationController {
     // The root view controller for our app
     init() {
         
-        super.init(rootViewController: LaunchController())
+        super.init(rootViewController: DependencyProvider.launchController)
     }
     
     // Helper init

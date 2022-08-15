@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB07D2A928AB092100F228D3 /* DependcyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB07D2A828AB092100F228D3 /* DependcyProvider.swift */; };
 		CB5B7D2928A735F800B6F5A2 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5B7D2828A735F800B6F5A2 /* MockService.swift */; };
 		CB755A51289969F700143FFF /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB755A50289969F700143FFF /* UIImage+Extensions.swift */; };
 		CB93031828998210002D023D /* LaunchController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB93031728998210002D023D /* LaunchController+Extension.swift */; };
@@ -60,6 +61,7 @@
 		6D67BE22DEE45A3DEC05E54A /* Pods-Task_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Tests.release.xcconfig"; path = "Target Support Files/Pods-Task_Tests/Pods-Task_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8AA5F5BF98D174104B35E717 /* Pods-Task_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Task_Tests/Pods-Task_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9E756BDBF991BA33F53F620E /* Pods_Task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB07D2A828AB092100F228D3 /* DependcyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependcyProvider.swift; sourceTree = "<group>"; };
 		CB5B7D2828A735F800B6F5A2 /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
 		CB755A50289969F700143FFF /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		CB93031728998210002D023D /* LaunchController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LaunchController+Extension.swift"; sourceTree = "<group>"; };
@@ -139,6 +141,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CB07D2A728AB087A00F228D3 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				CB07D2A828AB092100F228D3 /* DependcyProvider.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 		CB755A4F289969DC00143FFF /* Utilities+Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +223,7 @@
 				CBB223DC289939F4005D15B2 /* Views */,
 				CBB223D9289938B9005D15B2 /* ViewModels */,
 				CBB223B828992BA9005D15B2 /* Controllers */,
+				CB07D2A728AB087A00F228D3 /* DI */,
 				CBB223D428993010005D15B2 /* Networks */,
 				CB755A4F289969DC00143FFF /* Utilities+Extension */,
 				CBB223B2289920BF005D15B2 /* Info.plist */,
@@ -463,6 +474,7 @@
 				CBB223D728993030005D15B2 /* Services.swift in Sources */,
 				CBB223CD28992D41005D15B2 /* OrbitParams.swift in Sources */,
 				CBB223BE28992D32005D15B2 /* Timeline.swift in Sources */,
+				CB07D2A928AB092100F228D3 /* DependcyProvider.swift in Sources */,
 				CBB223C028992D32005D15B2 /* Telemetry.swift in Sources */,
 				CBB223CC28992D41005D15B2 /* LaunchSite.swift in Sources */,
 				CB98660E28995E4D00BFD2D8 /* LaunchCollectionFlowLayout.swift in Sources */,
